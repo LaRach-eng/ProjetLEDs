@@ -75,6 +75,7 @@ class Train():
     
     
 class Rails():
+    
     def __init__(self, strip, bounds, boundsFalling, boundsRising, color = (255,255,255), initialSpeed = 0, randomSpeed = 3.5,minSpeed = 1, g = 0.1, goingUp = False, tailFactor = 30, newTrainDelay = 30, randomColor = True, randomNewTrainDelay = 1,maxTrainNb = 6):
         self.strip = strip
         self.bounds = bounds
