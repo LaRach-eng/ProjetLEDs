@@ -6,7 +6,7 @@ Created on Tue Jan 26 18:32:21 2021
 """
 
 
-
+import math
 
 class Wave():
     def __init__(self,strip, bounds, Wheel ,intensity = 1, goingUp = True, wavelength = 5, period = 10):
@@ -25,9 +25,9 @@ class Wave():
             self.time = 0
         for i in range(self.bounds[0],self.bounds[1]):
             if self.goingUp:
-                self.strip.setPixelColor(i,self.update_intensity(self.Wheel(int(255*(self.time/self.period+i/self.wavelength))%255),self.intensity))
+                self.strip.setPixelColor(i,self.update_intensity(self.Wheel(int(255/2*(math.sin(2*math.pi*(self.time/self.period+i/self.wavelength))+1))),self.intensity))
             else:
-                self.strip.setPixelColor(i,self.update_intensity(self.Wheel(int(255*(self.time/self.period-i/self.wavelength))%255),self.intensity))
+                self.strip.setPixelColor(i,self.update_intensity(self.Wheel(int(255/2*(math.sin(2*math.pi*(self.time/self.period-i/self.wavelength))+1))),self.intensity))
     def update_intensity(self,color, intensity):
         b = int((color & 255)*intensity)
         g = int(((color >> 8) & 255)*intensity)
